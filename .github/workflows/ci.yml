@@ -1,0 +1,42 @@
+name: Theme checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  neovim:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [v0.10.4, stable, nightly]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: ${{ matrix.version }}
+      - name: Verify loading, links, overrides, and contrast
+        run: nvim --headless -u NONE -l tests/run.lua
+      - name: Verify preview without Tree-sitter
+        run: nvim --headless -u scripts/preview.lua -c 'luafile tests/preview.lua'
+
+  exports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: stable
+      - name: Check generated themes
+        run: |
+          python3 scripts/export.py --check
+          python3 -m unittest discover -s tests -p 'test_*.py' -v

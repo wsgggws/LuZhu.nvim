@@ -1,0 +1,18 @@
+[delta "qingshan"]
+    dark = true
+    light = false
+    syntax-theme = QingShan
+    minus-style = syntax "#432F2B"
+    minus-emph-style = "#1B2824" bold "#D29580"
+    plus-style = syntax "#2C4031"
+    plus-emph-style = "#D9E2D1" bold "#3B5747"
+    file-style = bold "#A5C7B7"
+    file-decoration-style = "#536B5A" ul
+    hunk-header-style = syntax file line-number
+    hunk-header-decoration-style = "#536B5A" box
+    zero-style = syntax "#202F2B"
+    line-numbers-left-style = "#ABA396" "#202F2B"
+    line-numbers-right-style = "#ABA396" "#202F2B"
+    line-numbers-zero-style = "#ABA396" "#202F2B"
+    line-numbers-minus-style = "#D29580" "#432F2B"
+    line-numbers-plus-style = "#AAC39A" "#2C4031"

@@ -1,0 +1,100 @@
+*qingshan.txt*  青山入墨 · QingShan — quiet greens for Neovim
+
+青山如黛，代码如墨。                                           *qingshan*
+
+Requires Neovim 0.10+ and a true-color terminal or GUI.
+No plugin dependencies. Dark theme only.
+
+LOAD                                                        *qingshan-load*
+>
+    :colorscheme qingshan
+<
+Enables 'termguicolors' and sets 'background' to "dark".
+
+CONFIGURATION                                              *qingshan-setup*
+
+Call setup before loading the colorscheme. It is optional.
+>
+    require("qingshan").setup({
+      transparent = false,
+      dim_inactive = false,
+      terminal_colors = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { bold = true },
+        functions = {},
+        variables = {},
+      },
+      palette = {},
+      highlights = {},
+    })
+    vim.cmd.colorscheme("qingshan")
+<
+Each setup call starts from defaults. Load the colorscheme again to apply it.
+
+transparent       Removes the background of ordinary windows and file trees.
+                  Floating windows, selections and cursor lines keep theirs.
+dim_inactive      Dims inactive windows; in transparent mode only text is dimmed.
+terminal_colors   Sets g:terminal_color_0 through g:terminal_color_15. Disabling
+                  leaves existing values alone. Reopen existing terminals if
+                  their palette does not update.
+styles            comments / keywords / functions / variables style tables.
+                  Supports boolean bold, italic, underline, undercurl and
+                  strikethrough attributes. Use italic=false to disable italics.
+palette           Existing palette keys mapped to #RRGGBB values.
+highlights        A table, or function(palette, options) returning a table of
+                  nvim_set_hl definitions. Each definition replaces the whole
+                  group. Empty tables clear groups. Links and default=true
+                  follow native nvim_set_hl semantics.
+
+EXAMPLE                                                *qingshan-customize*
+>
+    require("qingshan").setup({
+      styles = { comments = { italic = false } },
+      highlights = function(p)
+        return {
+          CursorLineNr = { fg = p.jade, bold = true },
+          TelescopeBorder = { link = "FloatBorder" },
+        }
+      end,
+    })
+    vim.cmd.colorscheme("qingshan")
+<
+Palette and options passed to the callback are independent copies. See
+lua/qingshan/palette.lua for all named colors. User overrides and terminal
+backgrounds in transparent mode are outside the default contrast guarantees.
+
+INTEGRATIONS                                           *qingshan-plugins*
+
+Vim syntax, Tree-sitter, LSP semantic tokens, diagnostics, references, inlay
+hints, completion menus, search, diffs and terminal ANSI colors are covered.
+
+Optional plugin highlights: Telescope, nvim-cmp, blink.cmp, Neo-tree, nvim-tree,
+which-key, gitsigns, mini.statusline, mini.indentscope, mini.cursorword, ibl,
+Lazy and Mason. No plugin modules are loaded by the theme.
+
+PREVIEW                                                *qingshan-preview*
+
+From the repository root: >
+    nvim -u scripts/preview.lua
+    uv run scripts/screenshot.py
+<
+The preview uses explicit diagnostic/Git fixtures and an optional bundled Lua
+parser. The screenshot script captures Neovim's actual RGB UI grid and needs
+Python, pynvim, Pillow and installed monospace/CJK fonts. See CONTRIBUTING.md.
+
+CROSS-TOOL THEMES                                       *qingshan-extras*
+
+Native files in extras/ cover WezTerm, tmux, fzf, bat, delta, Alfred and slides
+Glamour JSON. See extras/README.md for manual import and loading instructions.
+Exporting and checking files requires Python 3.10+ and Neovim.
+
+This repository maintains colorschemes and palette exports. Personal account
+switching, application automation and tmux pickers live in their respective
+configuration directories. Slides decks select JSON through frontmatter.
+
+LICENSE                                                *qingshan-license*
+
+MIT. Copyright (c) 2026 QingShan contributors.
+
+vim:tw=78:ts=8:noet:ft=help:norl:
