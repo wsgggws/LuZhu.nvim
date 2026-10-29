@@ -132,4 +132,4 @@ python3 scripts/export.py --check
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-导出只写入本仓库的 `extras/`；检查验证生成文件、语义层级、选区反差及各端背景一致性。个人配置的安装、统一切换和窗口选择器独立维护，测试也位于对应的配置目录。
+导出写入本仓库的 `extras/` 与 README 色样目录 `assets/swatches/`；检查验证生成文件、语义层级、选区反差及各端背景一致性。个人配置的安装、统一切换和窗口选择器独立维护，测试也位于对应的配置目录。

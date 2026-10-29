@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export native theme files from the Neovim palette. No Python dependencies."""
+"""Export native themes and README swatches from the Neovim palette. No Python dependencies."""
 
 import argparse
 import json
@@ -327,9 +327,43 @@ def slides(p):
     }
 
 
+def swatches(p):
+    """Generate README color samples from the same palette as the themes."""
+    roles = (
+        "bg",
+        "bg_dark",
+        "bg_float",
+        "bg_highlight",
+        "bg_visual",
+        "fg",
+        "comment",
+        "keyword",
+        "jade",
+        "sand",
+        "bamboo",
+        "string",
+        "gold",
+        "red",
+        "yellow",
+        "blue",
+        "hint",
+    )
+    return {
+        f"assets/swatches/{role}.svg": (
+            '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="18" '
+            f'viewBox="0 0 48 18" role="img" aria-label="{p[role]}">\n'
+            f"  <title>{p[role]}</title>\n"
+            f'  <rect width="48" height="18" rx="3" fill="{p[role]}"/>\n'
+            "</svg>\n"
+        )
+        for role in roles
+    }
+
+
 def artifacts(data):
     p, ansi = data["colors"], data["terminal"]
     return {
+        **swatches(p),
         "extras/palette.json": json_text(data),
         "extras/wezterm/LuZhu.toml": wezterm(p, ansi),
         "extras/tmux/luzhu.conf": tmux(p),

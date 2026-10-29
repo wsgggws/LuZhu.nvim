@@ -39,7 +39,6 @@ return {
 }
 ```
 
-本地安装可将仓库名替换为 `dir = vim.fn.expand("~/github/LuZhu.nvim")`。
 安装后也可执行 `:colorscheme luzhu`。主题会自动启用 `termguicolors`。
 
 ## 配置
@@ -78,33 +77,31 @@ require("luzhu").setup({
 
 取潭水的深静、珠玉的温润与罗绢钗饰的光泽，为每种颜色赋予与绿珠相衬的名字。
 
-| 名称 | 角色 | 色值 |
-| --- | --- | --- |
-| 潭绿 | 正文背景 | `#1D3229` |
-| 深潭 | 深层背景 | `#182A22` |
-| 碧潭 | 浮层背景 | `#243B2E` |
-| 翠影 | 当前行 | `#293F30` |
-| 翠帷 | 选区 | `#41634A` |
-| 珠白 | 正文与变量 | `#DCE8D5` |
-| 绢灰 | 注释 | `#A6A5A2` |
-| 碧玉 | 关键字 | `#89C79B` |
-| 玉青 | 函数 | `#99CEBE` |
-| 绢黄 | 参数 | `#D7C5A0` |
-| 柳芽 | 类型 | `#A8C38B` |
-| 碧绫 | 字符串 | `#C6D8A3` |
-| 钗金 | 数字与常量 | `#C5AD78` |
-| 红粉 | 错误 | `#D29580` |
-| 金缕 | 警告 | `#D1B77F` |
-| 水碧 | 信息 | `#9BBDB5` |
-| 青佩 | 提示 | `#A2BC8E` |
+| 名称 | 角色 | 色值 | 色样 |
+| --- | --- | --- | --- |
+| 潭绿 | 正文背景 | `#1D3229` | ![#1D3229](assets/swatches/bg.svg) |
+| 深潭 | 深层背景 | `#182A22` | ![#182A22](assets/swatches/bg_dark.svg) |
+| 碧潭 | 浮层背景 | `#243B2E` | ![#243B2E](assets/swatches/bg_float.svg) |
+| 翠影 | 当前行 | `#293F30` | ![#293F30](assets/swatches/bg_highlight.svg) |
+| 翠帷 | 选区 | `#41634A` | ![#41634A](assets/swatches/bg_visual.svg) |
+| 珠白 | 正文与变量 | `#DCE8D5` | ![#DCE8D5](assets/swatches/fg.svg) |
+| 绢灰 | 注释 | `#A6A5A2` | ![#A6A5A2](assets/swatches/comment.svg) |
+| 碧玉 | 关键字 | `#89C79B` | ![#89C79B](assets/swatches/keyword.svg) |
+| 玉青 | 函数 | `#99CEBE` | ![#99CEBE](assets/swatches/jade.svg) |
+| 绢黄 | 参数 | `#D7C5A0` | ![#D7C5A0](assets/swatches/sand.svg) |
+| 柳芽 | 类型 | `#A8C38B` | ![#A8C38B](assets/swatches/bamboo.svg) |
+| 碧绫 | 字符串 | `#C6D8A3` | ![#C6D8A3](assets/swatches/string.svg) |
+| 钗金 | 数字与常量 | `#C5AD78` | ![#C5AD78](assets/swatches/gold.svg) |
+| 红粉 | 错误 | `#D29580` | ![#D29580](assets/swatches/red.svg) |
+| 金缕 | 警告 | `#D1B77F` | ![#D1B77F](assets/swatches/yellow.svg) |
+| 水碧 | 信息 | `#9BBDB5` | ![#9BBDB5](assets/swatches/blue.svg) |
+| 青佩 | 提示 | `#A2BC8E` | ![#A2BC8E](assets/swatches/hint.svg) |
 
 潭绿衬珠白，绢灰收敛注释，碧玉点明关键字；玉青函数、绢黄参数与碧绫字符串各有层次，钗金与红粉作少量点染。完整色板与配置键见 [palette.lua](lua/luzhu/palette.lua)。
 
 ## 其他配色
 
-Alfred 使用独立身份，`LuZhu Dark Large` 可与 `QingShan Dark Large` 同时保留。
-
-[extras/](extras/README.md) 提供 WezTerm、tmux、fzf、bat、Git diff（delta）、Alfred 与 slides 的同色板主题文件，随色板同步更新。导入与重载方法见各工具说明。已配置本机统一切换函数时，执行 `switch_all_theme luzhu`；更新配色文件后执行 `switch_all_theme luzhu --refresh`。个人安装与切换脚本在各自配置目录维护。
+其他工具的配色文件见 [extras/](extras/README.md)。
 
 ## 预览
 
