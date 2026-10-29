@@ -97,6 +97,7 @@ CROSS-TOOL THEMES                                       *luzhu-extras*
 Native files in extras/ cover WezTerm, tmux, fzf, bat, delta, Alfred and slides
 Glamour JSON. See extras/README.md for manual import and loading instructions.
 Exporting and checking files requires Python 3.10+ and Neovim.
+Alfred uses a distinct persistent identity, so LuZhu and QingShan can coexist.
 
 This repository maintains colorschemes and palette exports. Personal account
 switching, application automation and tmux pickers live in their respective

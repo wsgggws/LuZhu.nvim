@@ -61,7 +61,8 @@ class NativeFormats(unittest.TestCase):
         )
         uid = plistlib.loads((ROOT / "extras/alfred/luzhu.plist").read_bytes())
         self.assertEqual(uid["lightthemeuid"], uid["darkthemeuid"])
-        self.assertEqual(uid["lightthemeuid"], "theme.custom.33567AFC-F4E3-5775-B302-8835D02D534D")
+        self.assertEqual(uid["lightthemeuid"], "theme.custom.606F48AD-2614-51BB-A719-23B3DD933DE8")
+        self.assertNotEqual(uid["lightthemeuid"], "theme.custom.33567AFC-F4E3-5775-B302-8835D02D534D")
 
 
 if __name__ == "__main__":
