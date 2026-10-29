@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   once = true,
   callback = function()
     local ok, err = xpcall(function()
-      assert(vim.g.colors_name == "qingshan", "preview colorscheme")
+      assert(vim.g.colors_name == "luzhu", "preview colorscheme")
       assert(vim.bo.filetype == "lua", "preview filetype detection")
       assert(vim.bo.syntax == "lua", "Vim syntax fallback")
       assert(vim.fn.synIDattr(vim.fn.synID(16, 1, 1), "name") ~= "", "Vim syntax actually highlights code")
@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
       io.stderr:write(err .. "\n")
       vim.cmd("cquit 1")
     else
-      io.stdout:write("QingShan preview: Vim syntax fallback passed\n")
+      io.stdout:write("LuZhu preview: Vim syntax fallback passed\n")
       vim.cmd("qa!")
     end
   end,

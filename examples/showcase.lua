@@ -1,4 +1,4 @@
--- 青山如黛，代码如墨。
+-- 绿意凝珠，温润如玉。
 -- A quiet place for code, between bamboo and distant mountains.
 
 local M = {}
@@ -7,7 +7,7 @@ local M = {}
 ---@field name string
 ---@field layers integer
 local landscape = {
-  name = "青山入墨 · QingShan",
+  name = "绿珠 · LuZhu",
   layers = 3,
   opacity = 0.85,
   enabled = true,

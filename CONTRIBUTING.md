@@ -1,6 +1,6 @@
 # 贡献与维护
 
-感谢共同打磨青山入墨。设计目标是长期阅读代码时的清晰与安静：低饱和青绿背景、可辨的注释与语法层级、少量古金与朱砂。色彩调整应同时检查普通代码、文档注释、诊断、选区和 diff。
+感谢共同打磨绿珠。设计目标是长期阅读代码时的清晰与安静：低饱和青绿背景、可辨的注释与语法层级、少量古金与朱砂。色彩调整应同时检查普通代码、文档注释、诊断、选区和 diff。
 
 ## 环境
 
@@ -11,16 +11,16 @@
 
 ## 色板与导出
 
-1. 在 `lua/qingshan/palette.lua` 修改命名颜色，在 `lua/qingshan/theme.lua` 修改角色与链接。默认高亮与用户配置 API 分别由 `theme.lua` 和 `init.lua` 管理。
+1. 在 `lua/luzhu/palette.lua` 修改命名颜色，在 `lua/luzhu/theme.lua` 修改角色与链接。默认高亮与用户配置 API 分别由 `theme.lua` 和 `init.lua` 管理。
 2. 修改跨工具映射时编辑 `scripts/export.py`，运行 `python3 scripts/export.py`。`extras/` 下的主题文件与 `palette.json` 随源码一同提交，便于单独导入。
-3. 执行下方检查，再用 `nvim -u scripts/preview.lua` 观察实际效果。运行 `uv run scripts/screenshot.py` 更新 `assets/qingshan.png`，查看图片确认没有文字裁切、错误高亮或色板漂移。
+3. 执行下方检查，再用 `nvim -u scripts/preview.lua` 观察实际效果。运行 `uv run scripts/screenshot.py` 更新 `assets/luzhu.png`，查看图片确认没有文字裁切、错误高亮或色板漂移。
 4. 更新 README 中的颜色、语义映射和 CHANGELOG；`python3 scripts/export.py --check` 应无差异。
 
 注释使用暖灰以区别青绿关键字，变量使用更明亮的宣纸色。不要以降低注释可读性换取层级。`tests/run.lua` 对默认主要文字执行相对亮度对比度检查，这只是配色约束，不代表完整无障碍认证。
 
-原生语法未必识别参数；Treesitter/LSP 识别时将其链接到 `QingShanParameter`。bat 按 `variable.parameter` scope 处理；slides 的 Chroma token 不提供独立参数角色时使用普通变量色。保持各工具在其能力范围内语义一致。
+原生语法未必识别参数；Treesitter/LSP 识别时将其链接到 `LuZhuParameter`。bat 按 `variable.parameter` scope 处理；slides 的 Chroma token 不提供独立参数角色时使用普通变量色。保持各工具在其能力范围内语义一致。
 
-Alfred 的 UUID 根据固定 seed 生成。seed 中的旧小写仓库名属于已安装主题的持久身份，改名不会改变该 seed。`QingShan Dark Large` 是 Alfred 的显示名与原生文件名，Neovim、WezTerm、bat 的名称继续使用原约定。
+Alfred 的 UUID 根据固定 seed 生成。seed 中的旧小写仓库名属于已安装主题的持久身份，改名不会改变该 seed。`LuZhu Dark Large` 是 Alfred 的显示名与原生文件名，Neovim 模块与 colorscheme 使用 `luzhu`，WezTerm 与 bat 使用 `LuZhu`。
 
 ## 验证
 
@@ -54,7 +54,7 @@ Lua 检查覆盖解析、加载、重载、链接、选项隔离和文字对比�
 
 ## 截图
 
-`uv run scripts/screenshot.py` 捕获 Neovim 的真实 UI 网格并生成 `assets/qingshan.png`。预览中的诊断与 Git 标记为演示数据。脚本自动寻找常见等宽与中文字体，也可指定：
+`uv run scripts/screenshot.py` 捕获 Neovim 的真实 UI 网格并生成 `assets/luzhu.png`。预览中的诊断与 Git 标记为演示数据。脚本自动寻找常见等宽与中文字体，也可指定：
 
 ```sh
 uv run scripts/screenshot.py --font /path/to/monospace.ttf --cjk-font /path/to/chinese.ttc

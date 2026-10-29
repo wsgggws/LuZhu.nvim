@@ -19,36 +19,36 @@ local options = vim.deepcopy(defaults)
 local function validate(opts)
   for name in pairs(opts) do
     if defaults[name] == nil then
-      error("qingshan: unknown option: " .. tostring(name))
+      error("luzhu: unknown option: " .. tostring(name))
     end
   end
   for _, name in ipairs({ "transparent", "dim_inactive", "terminal_colors" }) do
     if opts[name] ~= nil and type(opts[name]) ~= "boolean" then
-      error("qingshan: " .. name .. " must be a boolean")
+      error("luzhu: " .. name .. " must be a boolean")
     end
   end
   for _, name in ipairs({ "styles", "palette" }) do
     if opts[name] ~= nil and type(opts[name]) ~= "table" then
-      error("qingshan: " .. name .. " must be a table")
+      error("luzhu: " .. name .. " must be a table")
     end
   end
   if opts.highlights ~= nil and type(opts.highlights) ~= "table" and type(opts.highlights) ~= "function" then
-    error("qingshan: highlights must be a table or function")
+    error("luzhu: highlights must be a table or function")
   end
   for name, style in pairs(opts.styles or {}) do
     if defaults.styles[name] == nil or type(style) ~= "table" then
-      error("qingshan: styles must contain comments/keywords/functions/variables tables")
+      error("luzhu: styles must contain comments/keywords/functions/variables tables")
     end
     for attr, value in pairs(style) do
       if not vim.tbl_contains({ "bold", "italic", "underline", "undercurl", "strikethrough" }, attr) then
-        error("qingshan: unsupported style: " .. tostring(attr))
+        error("luzhu: unsupported style: " .. tostring(attr))
       end
       if type(value) ~= "boolean" then
-        error("qingshan: style attributes must be booleans")
+        error("luzhu: style attributes must be booleans")
       end
     end
   end
-  require("qingshan.palette").get(opts.palette)
+  require("luzhu.palette").get(opts.palette)
 end
 
 ---Configure the next colorscheme load. Each call starts from the defaults.
@@ -58,7 +58,7 @@ function M.setup(opts)
     opts = {}
   end
   if type(opts) ~= "table" then
-    error("qingshan: setup expects a table")
+    error("luzhu: setup expects a table")
   end
   validate(opts)
   local next_options = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts)
@@ -69,8 +69,8 @@ end
 
 function M.load()
   local opts = vim.deepcopy(options)
-  local palette = require("qingshan.palette").get(opts.palette)
-  local groups = require("qingshan.theme").get(palette, opts)
+  local palette = require("luzhu.palette").get(opts.palette)
+  local groups = require("luzhu.theme").get(palette, opts)
 
   -- Build overrides before clearing the current theme, so callback errors are safe.
   local overrides = opts.highlights
@@ -78,11 +78,11 @@ function M.load()
     overrides = overrides(vim.deepcopy(palette), vim.deepcopy(opts))
   end
   if type(overrides) ~= "table" then
-    error("qingshan: highlights callback must return a table")
+    error("luzhu: highlights callback must return a table")
   end
   for name, definition in pairs(overrides) do
     if type(name) ~= "string" or type(definition) ~= "table" then
-      error("qingshan: highlights must map group names to tables")
+      error("luzhu: highlights must map group names to tables")
     end
     groups[name] = vim.deepcopy(definition)
   end
@@ -95,7 +95,7 @@ function M.load()
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
-  vim.g.colors_name = "qingshan"
+  vim.g.colors_name = "luzhu"
 
   -- Normal groups first: `default` links can then resolve against their targets.
   for name, definition in pairs(groups) do
@@ -110,7 +110,7 @@ function M.load()
   end
 
   if opts.terminal_colors then
-    local terminal = require("qingshan.palette").terminal(palette)
+    local terminal = require("luzhu.palette").terminal(palette)
     for index, color in ipairs(terminal) do
       vim.g["terminal_color_" .. (index - 1)] = color
     end

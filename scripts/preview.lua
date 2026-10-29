@@ -22,12 +22,12 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.fillchars = { eob = " ", vert = "│" }
 vim.opt.shortmess:append("I")
-vim.opt.statusline = "  %t %m%r %= QingShan   %{&filetype}   %l:%c  "
+vim.opt.statusline = "  %t %m%r %= LuZhu   %{&filetype}   %l:%c  "
 -- Keep the preview independent of ftplugins that may auto-start a parser.
 vim.cmd("filetype plugin off")
 vim.cmd("filetype indent on")
 vim.cmd("syntax on")
-vim.cmd.colorscheme("qingshan")
+vim.cmd.colorscheme("luzhu")
 
 vim.api.nvim_create_autocmd("VimEnter", {
   once = true,
@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
       vim.bo.syntax = "lua"
     end
     local source = vim.api.nvim_get_current_buf()
-    local ns = vim.api.nvim_create_namespace("qingshan-preview")
+    local ns = vim.api.nvim_create_namespace("luzhu-preview")
     vim.diagnostic.config({
       virtual_text = { prefix = "●", spacing = 3 },
       underline = true,
@@ -54,19 +54,19 @@ vim.api.nvim_create_autocmd("VimEnter", {
       { lnum = 17, col = 16, end_col = 48, severity = 1, message = "demo: error text", source = "preview" },
       { lnum = 26, col = 2, end_col = 8, severity = 3, message = "demo: contract", source = "preview" },
     })
-    vim.fn.sign_define("QingShanPreviewAdd", { text = "+", texthl = "GitSignsAdd" })
-    vim.fn.sign_define("QingShanPreviewChange", { text = "~", texthl = "GitSignsChange" })
-    vim.fn.sign_place(0, "qingshan-preview", "QingShanPreviewAdd", source, { lnum = 22 })
-    vim.fn.sign_place(0, "qingshan-preview", "QingShanPreviewChange", source, { lnum = 30 })
+    vim.fn.sign_define("LuZhuPreviewAdd", { text = "+", texthl = "GitSignsAdd" })
+    vim.fn.sign_define("LuZhuPreviewChange", { text = "~", texthl = "GitSignsChange" })
+    vim.fn.sign_place(0, "luzhu-preview", "LuZhuPreviewAdd", source, { lnum = 22 })
+    vim.fn.sign_place(0, "luzhu-preview", "LuZhuPreviewChange", source, { lnum = 30 })
     vim.api.nvim_win_set_cursor(0, { 16, 15 })
 
-    local p = require("qingshan.palette").get()
+    local p = require("luzhu.palette").get()
     local lines = {
       "",
-      "  青山入墨",
-      "  QingShan",
+      "  绿珠",
+      "  LuZhu",
       "",
-      "  青山如黛，代码如墨。",
+      "  绿意凝珠，温润如玉。",
       "",
       "  PALETTE",
       "",
@@ -107,7 +107,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     vim.bo[panel].buftype = "nofile"
     vim.bo[panel].bufhidden = "wipe"
     vim.bo[panel].swapfile = false
-    vim.api.nvim_buf_set_name(panel, "QingShan / palette")
+    vim.api.nvim_buf_set_name(panel, "LuZhu / palette")
     vim.api.nvim_buf_set_lines(panel, 0, -1, false, lines)
     vim.bo[panel].modifiable = false
     vim.wo.number = false
@@ -141,7 +141,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
       [33] = "Search",
       [34] = "CurSearch",
       [36] = "Identifier",
-      [37] = "QingShanParameter",
+      [37] = "LuZhuParameter",
       [38] = "Comment",
     }
     for line, group in pairs(labels) do

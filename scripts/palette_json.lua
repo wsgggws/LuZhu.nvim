@@ -1,5 +1,5 @@
 local root = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h:h")
 vim.opt.runtimepath:prepend(root)
-local palette = require("qingshan.palette")
+local palette = require("luzhu.palette")
 io.stdout:write(vim.json.encode({ colors = palette.get(), terminal = palette.terminal() }) .. "\n")
 vim.cmd("qa!")

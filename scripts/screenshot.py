@@ -30,7 +30,7 @@ def find_font(explicit, candidates):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "assets" / "qingshan.png")
+    parser.add_argument("--output", type=Path, default=ROOT / "assets" / "luzhu.png")
     parser.add_argument("--font", help="Monospaced TTF/TTC font path")
     parser.add_argument("--cjk-font", help="Chinese TTF/TTC font path")
     parser.add_argument("--columns", type=int, default=144)
@@ -74,11 +74,11 @@ def main():
 
     def notify(name, args):
         nonlocal cells, default_fg, default_bg, cursor, captured
-        if name == "qingshan_capture":
+        if name == "luzhu_capture":
             captured = True
             nvim.stop_loop()
             return
-        if name == "qingshan_timeout":
+        if name == "luzhu_timeout":
             nvim.stop_loop()
             return
         if name != "redraw":
@@ -121,9 +121,9 @@ def main():
           local channel = ...
           vim.defer_fn(function()
             vim.cmd('redraw!')
-            vim.rpcnotify(channel, 'qingshan_capture')
+            vim.rpcnotify(channel, 'luzhu_capture')
           end, 250)
-          vim.defer_fn(function() vim.rpcnotify(channel, 'qingshan_timeout') end, 5000)
+          vim.defer_fn(function() vim.rpcnotify(channel, 'luzhu_timeout') end, 5000)
         """, nvim.channel_id)
         nvim.run_loop(None, notify)
         if not captured or not cells:

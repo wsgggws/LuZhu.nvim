@@ -39,14 +39,14 @@ local function run()
     end
   end
 
-  local theme = require("qingshan")
-  local palette = require("qingshan.palette")
+  local theme = require("luzhu")
+  local palette = require("luzhu.palette")
   local p = palette.get()
-  check(vim.fn.exists(":QingShan") == 0, "loading modules must not add commands")
+  check(vim.fn.exists(":LuZhu") == 0, "loading modules must not add commands")
   vim.o.background = "light"
   vim.o.termguicolors = false
-  vim.cmd.colorscheme("qingshan")
-  check(vim.g.colors_name == "qingshan", "standard colorscheme entry point")
+  vim.cmd.colorscheme("luzhu")
+  check(vim.g.colors_name == "luzhu", "standard colorscheme entry point")
   check(vim.o.background == "dark", "dark background")
   check(vim.o.termguicolors, "true colors enabled")
   check(hl("Normal").bg == rgb(p.bg), "Normal background")
@@ -85,7 +85,7 @@ local function run()
   check(contrast(p.fg, p.comment) >= 1.9, "variables remain visibly brighter than comments")
   check(contrast(p.keyword, p.comment) >= 1.2, "keywords stand apart from comments without font styles")
 
-  local groups = require("qingshan.theme").get(p, {
+  local groups = require("luzhu.theme").get(p, {
     transparent = false,
     dim_inactive = false,
     styles = { comments = { italic = true }, keywords = { bold = true }, functions = {}, variables = {} },
@@ -118,13 +118,13 @@ local function run()
   check(hl("@lsp.type.function", true).fg == rgb(p.jade), "LSP and syntax share function color")
 
   local before = vim.api.nvim_get_hl(0, {})
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(vim.deep_equal(before, vim.api.nvim_get_hl(0, {})), "repeat load is deterministic")
   vim.cmd.colorscheme("default")
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("Normal").bg == rgb(p.bg), "switching themes restores the palette")
   vim.cmd("syntax on")
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("String", true).fg == rgb(p.string), "syntax reset preserves theme definitions")
 
   local terminal_roles = {
@@ -150,11 +150,11 @@ local function run()
   end
   vim.g.terminal_color_1 = "#123456"
   theme.setup({ terminal_colors = false })
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(vim.g.terminal_color_1 == "#123456", "disabled terminal palette preserves existing globals")
 
   theme.setup({ transparent = true, dim_inactive = true, styles = { comments = { italic = false } } })
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   for _, name in ipairs({ "Normal", "NormalNC", "SignColumn", "FoldColumn", "NeoTreeNormal", "NvimTreeNormal" }) do
     check(hl(name, true).bg == nil, "transparent surface: " .. name)
   end
@@ -165,13 +165,13 @@ local function run()
     "comments remain distinct without italics"
   )
   theme.setup({ styles = { variables = { underline = true } } })
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(
     hl("@variable", true).underline and hl("@lsp.type.parameter", true).underline,
     "variable styles include parameters"
   )
   theme.setup({ dim_inactive = true })
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("NormalNC").bg == rgb(p.bg_dark), "inactive window dimming")
 
   theme.setup({
@@ -182,19 +182,19 @@ local function run()
       return {
         Comment = { link = "Function" },
         Function = { fg = colors.jade, bold = true },
-        QingShanUserGroup = { fg = colors.gold },
-        QingShanDefaultGroup = { link = "Function", default = true },
+        LuZhuUserGroup = { fg = colors.gold },
+        LuZhuDefaultGroup = { link = "Function", default = true },
       }
     end,
   })
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("Comment").link == "Function" and hl("Comment").italic == nil, "links replace whole definitions")
   check(hl("@lsp.type.function", true).fg == rgb("#BBDDCB"), "palette overrides propagate through links")
   check(hl("Normal").bg == rgb(p.bg), "callback palette is isolated")
-  check(hl("QingShanUserGroup").fg == rgb(p.gold), "custom groups")
-  check(hl("QingShanDefaultGroup").link == "Function", "default link applies to undefined groups")
-  vim.api.nvim_set_hl(0, "QingShanDefaultGroup", { link = "Error", default = true })
-  check(hl("QingShanDefaultGroup").link == "Function", "default links preserve existing definitions")
+  check(hl("LuZhuUserGroup").fg == rgb(p.gold), "custom groups")
+  check(hl("LuZhuDefaultGroup").link == "Function", "default link applies to undefined groups")
+  vim.api.nvim_set_hl(0, "LuZhuDefaultGroup", { link = "Error", default = true })
+  check(hl("LuZhuDefaultGroup").link == "Function", "default links preserve existing definitions")
 
   local customized = palette.get({ bg = "#112233" })
   customized.string = "#000000"
@@ -203,7 +203,7 @@ local function run()
   theme.setup(caller_options)
   caller_options.highlights.Normal.fg = "#000000"
   caller_options.palette.jade = "#000000"
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("Normal").fg == rgb("#CCDDEE"), "setup copies caller highlight tables")
   check(hl("Function").fg == rgb("#BBDDCB"), "setup copies caller palette tables")
 
@@ -229,7 +229,7 @@ local function run()
   check(not pcall(theme.load), "invalid callback return must fail")
   check(vim.deep_equal(old_normal, hl("Normal")), "callback failure preserves the current theme")
   theme.setup()
-  vim.cmd.colorscheme("qingshan")
+  vim.cmd.colorscheme("luzhu")
   check(hl("Comment").italic and not hl("Function").bold, "setup resets previous configuration")
   check(hl("Normal").bg == rgb(p.bg), "setup restores opaque defaults")
 
@@ -257,7 +257,7 @@ local function run()
   check(contrast(p.fg, p.bg_search) >= 4.5, "search text contrast")
   check(contrast(p.bg_dark, p.yellow) >= 4.5, "current search text contrast")
   check(contrast(p.bg_dark, p.jade) >= 4.5, "terminal selection text contrast")
-  io.stdout:write(string.format("QingShan: %d checks passed on %s\n", count, vim.version()))
+  io.stdout:write(string.format("LuZhu: %d checks passed on %s\n", count, vim.version()))
 end
 
 local ok, err = xpcall(run, debug.traceback)

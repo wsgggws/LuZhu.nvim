@@ -84,7 +84,7 @@ function M.get(p, opts)
     Boolean = { fg = p.gold, bold = true },
     Float = { fg = p.gold },
     Identifier = styled(p.fg, opts.styles.variables),
-    QingShanParameter = styled(p.sand, opts.styles.variables),
+    LuZhuParameter = styled(p.sand, opts.styles.variables),
     Function = styled(p.jade, opts.styles.functions),
     Statement = styled(p.keyword, opts.styles.keywords),
     Operator = { fg = p.fg_dim },
@@ -222,7 +222,7 @@ function M.get(p, opts)
     -- Tree-sitter captures, including markup, injections, and builtins.
     ["@variable"] = "Identifier",
     ["@variable.builtin"] = "Special",
-    ["@variable.parameter"] = "QingShanParameter",
+    ["@variable.parameter"] = "LuZhuParameter",
     ["@variable.parameter.builtin"] = "Special",
     ["@variable.member"] = "Identifier",
     ["@constant"] = "Constant",

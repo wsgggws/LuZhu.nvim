@@ -1,19 +1,19 @@
-# 青山入墨 · 同色板主题
+# 绿珠 · 同色板主题
 
-这些文件由 `lua/qingshan/palette.lua` 导出，与 Neovim 使用同一份色板。此目录提供配色数据，各工具独立加载。
+这些文件由 `lua/luzhu/palette.lua` 导出，与 Neovim 使用同一份色板。此目录提供配色数据，各工具独立加载。
 
 | 工具 | 主题文件 | 建议存放位置 |
 | --- | --- | --- |
-| WezTerm | `wezterm/QingShan.toml` | `~/.config/wezterm/colors/QingShan.toml` |
-| tmux | `tmux/qingshan.conf` | `~/.config/tmux/themes/qingshan.conf` |
-| Oh my tmux! | `tmux/qingshan.oh-my-tmux.conf` | `~/.config/tmux/themes/qingshan.oh-my-tmux.conf` |
-| fzf | `fzf/qingshan.sh` | `~/.config/fzf/themes/qingshan.sh` |
-| bat | `bat/QingShan.tmTheme` | `~/.config/bat/themes/QingShan.tmTheme` |
-| delta | `delta/qingshan.gitconfig` | `~/.config/delta/themes/qingshan.gitconfig` |
-| Alfred | `alfred/QingShan Dark Large.alfredappearance` | `~/.config/alfred/themes/QingShan Dark Large.alfredappearance` |
-| slides / Markdown PPT | `slides/qingshan_theme.json` | 演示文稿目录中的 `qingshan_theme.json` |
+| WezTerm | `wezterm/LuZhu.toml` | `~/.config/wezterm/colors/LuZhu.toml` |
+| tmux | `tmux/luzhu.conf` | `~/.config/tmux/themes/luzhu.conf` |
+| Oh my tmux! | `tmux/luzhu.oh-my-tmux.conf` | `~/.config/tmux/themes/luzhu.oh-my-tmux.conf` |
+| fzf | `fzf/luzhu.sh` | `~/.config/fzf/themes/luzhu.sh` |
+| bat | `bat/LuZhu.tmTheme` | `~/.config/bat/themes/LuZhu.tmTheme` |
+| delta | `delta/luzhu.gitconfig` | `~/.config/delta/themes/luzhu.gitconfig` |
+| Alfred | `alfred/LuZhu Dark Large.alfredappearance` | `~/.config/alfred/themes/LuZhu Dark Large.alfredappearance` |
+| slides / Markdown PPT | `slides/luzhu_theme.json` | 演示文稿目录中的 `luzhu_theme.json` |
 
-Neovim 使用 `qingshan`，WezTerm 与 bat 使用 `QingShan`，delta feature 使用 `qingshan`。仓库名保持 `QingShan.nvim` 的大小写。
+Neovim 使用 `luzhu`，WezTerm 与 bat 使用 `LuZhu`，delta feature 使用 `luzhu`。仓库名保持 `LuZhu.nvim` 的大小写。
 
 ## 导入文件
 
@@ -22,12 +22,12 @@ Neovim 使用 `qingshan`，WezTerm 与 bat 使用 `QingShan`，delta feature 使
 ```sh
 mkdir -p ~/.config/wezterm/colors ~/.config/tmux/themes ~/.config/fzf/themes
 mkdir -p ~/.config/bat/themes ~/.config/delta/themes ~/.config/alfred/themes
-cp extras/wezterm/QingShan.toml ~/.config/wezterm/colors/
-cp extras/tmux/qingshan*.conf ~/.config/tmux/themes/
-cp extras/fzf/qingshan.sh ~/.config/fzf/themes/
-cp extras/bat/QingShan.tmTheme ~/.config/bat/themes/
-cp extras/delta/qingshan.gitconfig ~/.config/delta/themes/
-cp 'extras/alfred/QingShan Dark Large.alfredappearance' ~/.config/alfred/themes/
+cp extras/wezterm/LuZhu.toml ~/.config/wezterm/colors/
+cp extras/tmux/luzhu*.conf ~/.config/tmux/themes/
+cp extras/fzf/luzhu.sh ~/.config/fzf/themes/
+cp extras/bat/LuZhu.tmTheme ~/.config/bat/themes/
+cp extras/delta/luzhu.gitconfig ~/.config/delta/themes/
+cp 'extras/alfred/LuZhu Dark Large.alfredappearance' ~/.config/alfred/themes/
 ```
 
 复制前保留目标文件的已有版本。更新色板后重新复制相应文件，并按下文重载应用。`palette.json` 是完整色板的机器可读快照。
@@ -38,9 +38,9 @@ cp 'extras/alfred/QingShan Dark Large.alfredappearance' ~/.config/alfred/themes/
 
 ```lua
 config.color_scheme_dirs = { wezterm.home_dir .. "/.config/wezterm/colors" }
-config.color_scheme = "QingShan"
+config.color_scheme = "LuZhu"
 wezterm.add_to_config_reload_watch_list(
-  wezterm.home_dir .. "/.config/wezterm/colors/QingShan.toml"
+  wezterm.home_dir .. "/.config/wezterm/colors/LuZhu.toml"
 )
 ```
 
@@ -53,10 +53,10 @@ wezterm.add_to_config_reload_watch_list(
 普通 tmux 3.2+ 配置中加载：
 
 ```tmux
-source-file ~/.config/tmux/themes/qingshan.conf
+source-file ~/.config/tmux/themes/luzhu.conf
 ```
 
-文件定义状态栏、窗口状态、边框、消息、复制模式与 popup 的颜色。使用 Oh my tmux! 时，将 `qingshan.oh-my-tmux.conf` 的变量合并到现有主题变量区。随后执行：
+文件定义状态栏、窗口状态、边框、消息、复制模式与 popup 的颜色。使用 Oh my tmux! 时，将 `luzhu.oh-my-tmux.conf` 的变量合并到现有主题变量区。随后执行：
 
 ```sh
 tmux source-file ~/.tmux.conf
@@ -67,7 +67,7 @@ copy mode 同样采用浅玉底、深墨字。主题文件仅提供样式，窗�
 ## fzf
 
 ```sh
-. "$HOME/.config/fzf/themes/qingshan.sh"
+. "$HOME/.config/fzf/themes/luzhu.sh"
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:-} --color=$FZF_THEME_COLOR"
 ```
 
@@ -78,7 +78,7 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:-} --color=$FZF_THEME_COLOR"
 在 `~/.config/bat/config` 中设置：
 
 ```text
---theme="QingShan"
+--theme="LuZhu"
 ```
 
 首次复制或更新 TextMate 文件后执行 `bat cache --build`，并用 `bat --list-themes` 确认注册。
@@ -89,32 +89,38 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:-} --color=$FZF_THEME_COLOR"
 
 ```gitconfig
 [include]
-    path = ~/.config/delta/themes/qingshan.gitconfig
+    path = ~/.config/delta/themes/luzhu.gitconfig
 [delta]
-    features = qingshan
+    features = luzhu
 ```
 
 已有 `[delta]` 中直接设置的样式可能覆盖 feature。delta 使用 bat 主题缓存；自定义缓存目录时，应让两者指向同一个 XDG 缓存位置。
 
 ## Alfred
 
-打开 `~/.config/alfred/themes/QingShan Dark Large.alfredappearance` 导入，再在 Alfred 外观设置中选择 `QingShan Dark Large`。
+打开 `~/.config/alfred/themes/LuZhu Dark Large.alfredappearance` 导入，再在 Alfred 外观设置中选择 `LuZhu Dark Large`。
 
 不透明黛青深色配色：搜索区采用浮层青绿，选中项使用苔绿。主题 UUID 保持稳定，重新导出或更名时沿用同一身份。
 
-`alfred/qingshan.plist` 提供浅色、深色选择均指向该 UUID 的配置数据，供个人配置工具使用；导入外观无需覆盖 Alfred 的整份偏好设置。应用自动切换脚本由个人 Alfred 配置目录维护。
+`alfred/luzhu.plist` 提供浅色、深色选择均指向该 UUID 的配置数据，供个人配置工具使用；导入外观无需覆盖 Alfred 的整份偏好设置。应用自动切换脚本由个人 Alfred 配置目录维护。
 
 ## slides / Markdown PPT
 
-`slides/qingshan_theme.json` 是 slides 使用的 Glamour JSON，包含自定义 Chroma 代码色板。复制到演示文稿目录，在文稿开头指定：
+`slides/luzhu_theme.json` 是 slides 使用的 Glamour JSON，包含自定义 Chroma 代码色板。复制到演示文稿目录，在文稿开头指定：
 
 ```yaml
 ---
-theme: ./qingshan_theme.json
+theme: ./luzhu_theme.json
 ---
 ```
 
 主题相对路径以启动 `slides` 的工作目录为准，也可使用绝对路径。JSON 定义正文、标题、引用、链接、代码与 diff；应用自身的页码、日期和作者栏可能使用内置颜色。
+
+## 本机统一切换
+
+本机配置已安装绿珠时，在 zsh 中执行 `switch_all_theme luzhu`；更新同名主题文件后执行 `switch_all_theme luzhu --refresh`。命令由 `~/.zsh/functions/switch_all_theme.zsh` 维护，新终端自动加载；当前终端需先 `source ~/.zsh/functions/switch_all_theme.zsh`。
+
+Alfred 沿用更名前的 UUID，因此在同一套 Alfred 偏好中切换青山与绿珠会更新同一个已注册主题的名称与内容。
 
 ## 更新与检查
 

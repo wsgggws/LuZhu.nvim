@@ -1,4 +1,4 @@
--- 青山入墨: mineral greens, warm paper, and restrained mineral pigments.
+-- 绿珠: mineral greens, warm paper, and restrained mineral pigments.
 local M = {}
 
 local colors = {
@@ -43,13 +43,13 @@ function M.get(overrides)
   local result = vim.deepcopy(colors)
   for name, value in pairs(overrides or {}) do
     if colors[name] == nil then
-      error("qingshan: unknown palette color: " .. tostring(name))
+      error("luzhu: unknown palette color: " .. tostring(name))
     end
     if type(value) ~= "string" or not value:match("^#%x%x%x%x%x%x$") then
-      error("qingshan: palette." .. name .. " must be a #RRGGBB color")
+      error("luzhu: palette." .. name .. " must be a #RRGGBB color")
     end
     if name == "none" then
-      error("qingshan: palette.none cannot be overridden")
+      error("luzhu: palette.none cannot be overridden")
     end
     result[name] = value
   end

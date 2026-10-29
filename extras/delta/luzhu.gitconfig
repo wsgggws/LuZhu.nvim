@@ -1,7 +1,7 @@
-[delta "qingshan"]
+[delta "luzhu"]
     dark = true
     light = false
-    syntax-theme = QingShan
+    syntax-theme = LuZhu
     minus-style = syntax "#432F2B"
     minus-emph-style = "#182A22" bold "#D29580"
     plus-style = syntax "#294630"

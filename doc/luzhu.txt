@@ -1,21 +1,21 @@
-*qingshan.txt*  青山入墨 · QingShan — quiet greens for Neovim
+*luzhu.txt*  绿珠 · LuZhu — quiet greens for Neovim
 
-青山如黛，代码如墨。                                           *qingshan*
+绿珠：取中国古代美人之名，寄寓绿意如珍宝。                                           *luzhu*
 
 Requires Neovim 0.10+ and a true-color terminal or GUI.
 No plugin dependencies. Dark theme only.
 
-LOAD                                                        *qingshan-load*
+LOAD                                                        *luzhu-load*
 >
-    :colorscheme qingshan
+    :colorscheme luzhu
 <
 Enables 'termguicolors' and sets 'background' to "dark".
 
-CONFIGURATION                                              *qingshan-setup*
+CONFIGURATION                                              *luzhu-setup*
 
 Call setup before loading the colorscheme. It is optional.
 >
-    require("qingshan").setup({
+    require("luzhu").setup({
       transparent = false,
       dim_inactive = false,
       terminal_colors = true,
@@ -28,7 +28,7 @@ Call setup before loading the colorscheme. It is optional.
       palette = {},
       highlights = {},
     })
-    vim.cmd.colorscheme("qingshan")
+    vim.cmd.colorscheme("luzhu")
 <
 Each setup call starts from defaults. Load the colorscheme again to apply it.
 
@@ -47,9 +47,9 @@ highlights        A table, or function(palette, options) returning a table of
                   group. Empty tables clear groups. Links and default=true
                   follow native nvim_set_hl semantics.
 
-EXAMPLE                                                *qingshan-customize*
+EXAMPLE                                                *luzhu-customize*
 >
-    require("qingshan").setup({
+    require("luzhu").setup({
       styles = { comments = { italic = false } },
       highlights = function(p)
         return {
@@ -58,13 +58,13 @@ EXAMPLE                                                *qingshan-customize*
         }
       end,
     })
-    vim.cmd.colorscheme("qingshan")
+    vim.cmd.colorscheme("luzhu")
 <
 Palette and options passed to the callback are independent copies. See
-lua/qingshan/palette.lua for all named colors. User overrides and terminal
+lua/luzhu/palette.lua for all named colors. User overrides and terminal
 backgrounds in transparent mode are outside the default contrast guarantees.
 
-INTEGRATIONS                                           *qingshan-plugins*
+INTEGRATIONS                                           *luzhu-plugins*
 
 Vim syntax, Tree-sitter, LSP semantic tokens, diagnostics, references, inlay
 hints, completion menus, search, diffs and terminal ANSI colors are covered.
@@ -73,7 +73,7 @@ Optional plugin highlights: Telescope, nvim-cmp, blink.cmp, Neo-tree, nvim-tree,
 which-key, gitsigns, mini.statusline, mini.indentscope, mini.cursorword, ibl,
 Lazy and Mason. No plugin modules are loaded by the theme.
 
-PREVIEW                                                *qingshan-preview*
+PREVIEW                                                *luzhu-preview*
 
 From the repository root: >
     nvim -u scripts/preview.lua
@@ -83,7 +83,7 @@ The preview uses explicit diagnostic/Git fixtures and an optional bundled Lua
 parser. The screenshot script captures Neovim's actual RGB UI grid and needs
 Python, pynvim, Pillow and installed monospace/CJK fonts. See CONTRIBUTING.md.
 
-CROSS-TOOL THEMES                                       *qingshan-extras*
+CROSS-TOOL THEMES                                       *luzhu-extras*
 
 Native files in extras/ cover WezTerm, tmux, fzf, bat, delta, Alfred and slides
 Glamour JSON. See extras/README.md for manual import and loading instructions.
@@ -93,8 +93,8 @@ This repository maintains colorschemes and palette exports. Personal account
 switching, application automation and tmux pickers live in their respective
 configuration directories. Slides decks select JSON through frontmatter.
 
-LICENSE                                                *qingshan-license*
+LICENSE                                                *luzhu-license*
 
-MIT. Copyright (c) 2026 QingShan contributors.
+MIT. Copyright (c) 2026 QingShan contributors and LuZhu contributors.
 
 vim:tw=78:ts=8:noet:ft=help:norl:
