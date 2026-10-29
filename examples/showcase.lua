@@ -1,41 +1,41 @@
 -- 绿意凝珠，温润如玉。
--- A quiet place for code, between bamboo and distant mountains.
+-- Quiet code, like a pearl resting in jade.
 
 local M = {}
 
----@class Landscape
+---@class Pearl
 ---@field name string
 ---@field layers integer
-local landscape = {
+local pearl = {
   name = "绿珠 · LuZhu",
   layers = 3,
-  opacity = 0.85,
+  lustre = 0.85,
   enabled = true,
 }
 
-local function blend_ink(density, distance)
-  if distance <= 0 then
-    return nil, "distance must be positive"
+local function pearl_glow(lustre, layer)
+  if layer <= 0 then
+    return nil, "layer must be positive"
   end
 
-  -- 近山浓，远山淡。
-  local shade = density / (1 + distance)
-  return math.max(0.15, shade)
+  -- 珠光渐敛，玉色自温。
+  local glow = lustre / (1 + layer)
+  return math.max(0.15, glow)
 end
 
-function M.paint(scene)
-  assert(scene.enabled, "the scroll is still closed")
+function M.polish(gem)
+  assert(gem.enabled, "the jewel box is closed")
 
-  for layer = 1, scene.layers do
-    local ink, err = blend_ink(scene.opacity, layer)
-    if not ink then
+  for layer = 1, gem.layers do
+    local glow, err = pearl_glow(gem.lustre, layer)
+    if not glow then
       return nil, err
     end
-    print(string.format("%s · %d · %.2f", scene.name, layer, ink))
+    print(string.format("%s · %d · %.2f", gem.name, layer, glow))
   end
 
   return true
 end
 
-M.paint(landscape)
+M.polish(pearl)
 return M

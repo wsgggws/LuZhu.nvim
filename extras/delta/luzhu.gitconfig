@@ -11,8 +11,8 @@
     hunk-header-style = syntax file line-number
     hunk-header-decoration-style = "#56785D" box
     zero-style = syntax "#1D3229"
-    line-numbers-left-style = "#ADA594" "#1D3229"
-    line-numbers-right-style = "#ADA594" "#1D3229"
-    line-numbers-zero-style = "#ADA594" "#1D3229"
+    line-numbers-left-style = "#A6A5A2" "#1D3229"
+    line-numbers-right-style = "#A6A5A2" "#1D3229"
+    line-numbers-zero-style = "#A6A5A2" "#1D3229"
     line-numbers-minus-style = "#D29580" "#432F2B"
     line-numbers-plus-style = "#A8C38B" "#294630"

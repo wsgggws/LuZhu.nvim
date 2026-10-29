@@ -1,39 +1,38 @@
--- 绿珠: mineral greens, warm paper, and restrained mineral pigments.
+-- 绿珠：潭水为底，珠玉为光，罗绢与钗饰点染其间。
 local M = {}
 
 local colors = {
-  bg = "#1D3229",
-  bg_dark = "#182A22",
-  bg_float = "#243B2E",
-  bg_highlight = "#293F30",
-  bg_visual = "#41634A",
-  bg_search = "#536C43",
-  fg = "#DCE8D5",
-  fg_dim = "#AEC0AB",
-  -- Warm stone separates prose from green syntax without sacrificing contrast.
-  comment = "#ADA594",
-  line_nr = "#6C866E",
-  border = "#56785D",
-  keyword = "#89C79B",
-  bamboo = "#A8C38B",
-  jade = "#99CEBE",
-  string = "#C6D8A3",
-  gold = "#C5AD78",
-  sand = "#D7C5A0",
-  red = "#D29580",
-  orange = "#C6A080",
-  yellow = "#D1B77F",
-  blue = "#9BBDB5",
-  hint = "#A2BC8E",
-  diff_add = "#294630",
-  diff_change = "#2C423B",
-  diff_delete = "#432F2B",
-  diff_text = "#3A5B46",
-  diagnostic_error = "#382F2A",
-  diagnostic_warn = "#38392C",
-  diagnostic_info = "#253D32",
-  diagnostic_hint = "#2C402D",
-  none = "NONE",
+  bg = "#1D3229", -- 潭绿
+  bg_dark = "#182A22", -- 深潭
+  bg_float = "#243B2E", -- 碧潭
+  bg_highlight = "#293F30", -- 翠影
+  bg_visual = "#41634A", -- 翠帷
+  bg_search = "#536C43", -- 苔锦
+  fg = "#DCE8D5", -- 珠白
+  fg_dim = "#AEC0AB", -- 薄绢
+  comment = "#A6A5A2", -- 绢灰：近中性的浅灰，微暖以区别青绿语法。
+  line_nr = "#6C866E", -- 帘影
+  border = "#56785D", -- 玉阶
+  keyword = "#89C79B", -- 碧玉
+  bamboo = "#A8C38B", -- 柳芽
+  jade = "#99CEBE", -- 玉青
+  string = "#C6D8A3", -- 碧绫
+  gold = "#C5AD78", -- 钗金
+  sand = "#D7C5A0", -- 绢黄
+  red = "#D29580", -- 红粉
+  orange = "#C6A080", -- 琥珀
+  yellow = "#D1B77F", -- 金缕
+  blue = "#9BBDB5", -- 水碧
+  hint = "#A2BC8E", -- 青佩
+  diff_add = "#294630", -- 柳影
+  diff_change = "#2C423B", -- 潭影
+  diff_delete = "#432F2B", -- 胭脂
+  diff_text = "#3A5B46", -- 翠纹
+  diagnostic_error = "#382F2A", -- 红粉底
+  diagnostic_warn = "#38392C", -- 金缕底
+  diagnostic_info = "#253D32", -- 水碧底
+  diagnostic_hint = "#2C402D", -- 青佩底
+  none = "NONE", -- 透明
 }
 
 ---Return an independent palette; customization never changes module defaults.

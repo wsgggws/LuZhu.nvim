@@ -64,6 +64,15 @@ Palette and options passed to the callback are independent copies. See
 lua/luzhu/palette.lua for all named colors. User overrides and terminal
 backgrounds in transparent mode are outside the default contrast guarantees.
 
+PALETTE NAMES                                           *luzhu-palette*
+
+Color names evoke Green Pearl's pool, jewels, silk and ornaments:
+潭绿 (bg), 珠白 (fg), 绢灰 (comment), 碧玉 (keyword), 玉青 (jade),
+绢黄 (sand), 柳芽 (bamboo), 碧绫 (string), 钗金 (gold), 红粉 (red),
+金缕 (yellow), 水碧 (blue) and 青佩 (hint).
+Use the palette keys in parentheses for setup overrides. Chinese display names
+are described beside each color in lua/luzhu/palette.lua.
+
 INTEGRATIONS                                           *luzhu-plugins*
 
 Vim syntax, Tree-sitter, LSP semantic tokens, diagnostics, references, inlay

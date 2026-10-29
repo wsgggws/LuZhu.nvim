@@ -2,8 +2,9 @@
 
 - 中文名为“绿珠”，取古代美人之名与珍宝之意。
 - 仓库名为 `LuZhu.nvim`，模块与 colorscheme 为 `luzhu`；兼容 Neovim 0.10+。
+- 颜色命名围绕潭水、珠玉、罗绢与钗饰；中文名称以 `palette.lua` 注释为准。
 - 颜色只定义在 `lua/luzhu/palette.lua`，高亮与链接在 `theme.lua`，公开选项在 `init.lua`。
-- 保持暖灰注释、明亮变量、竹青关键字的层级；默认正文在普通、浮层、当前行背景上的对比度至少 4.5:1。
+- 保持绢灰注释、珠白变量、碧玉关键字的层级；默认正文在普通、浮层、当前行背景上的对比度至少 4.5:1。
 - 基础语法、Treesitter、LSP 使用一致角色；链接有目标且无循环，加载可重复且不依赖插件。
 - 修改色板或原生格式时，按 [CONTRIBUTING.md](CONTRIBUTING.md) 重新导出并检查所有工具的语义与背景一致性；`extras/` 除 README 外均为生成文件。Alfred UUID seed 保持稳定。
 - 修改公开行为时同步 README 与 `doc/luzhu.txt`；导入说明位于 [extras/README.md](extras/README.md)。

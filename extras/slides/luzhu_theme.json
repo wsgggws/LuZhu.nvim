@@ -7,7 +7,7 @@
     "margin": 33
   },
   "block_quote": {
-    "color": "#ADA594",
+    "color": "#A6A5A2",
     "indent": 1,
     "indent_token": "│ "
   },
@@ -42,7 +42,7 @@
     "color": "#D7C5A0"
   },
   "h6": {
-    "color": "#ADA594"
+    "color": "#A6A5A2"
   },
   "text": {},
   "strikethrough": {
@@ -82,7 +82,7 @@
     "underline": true
   },
   "image_text": {
-    "color": "#ADA594",
+    "color": "#A6A5A2",
     "format": "Image: {{.text}} →"
   },
   "code": {
@@ -104,7 +104,7 @@
         "background_color": "#382F2A"
       },
       "comment": {
-        "color": "#ADA594",
+        "color": "#A6A5A2",
         "italic": true
       },
       "comment_preproc": {

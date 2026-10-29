@@ -46,7 +46,7 @@ wezterm.add_to_config_reload_watch_list(
 
 监听配色文件后，更新同名 TOML 也会触发重载。首次加入监听时保存 WezTerm 配置；亦可手动重载配置。
 
-原生拖选使用浅玉底 `jade`、深墨字 `bg_dark`，与 Neovim 的苔绿选区分开。tmux 开启鼠标时普通拖选由其 copy mode 接管；按住 Shift 可使用 WezTerm 原生选区。
+原生拖选使用玉青底 `jade`、深潭字 `bg_dark`，与 Neovim 的翠帷选区分开。tmux 开启鼠标时普通拖选由其 copy mode 接管；按住 Shift 可使用 WezTerm 原生选区。
 
 ## tmux
 
@@ -62,7 +62,7 @@ source-file ~/.config/tmux/themes/luzhu.conf
 tmux source-file ~/.tmux.conf
 ```
 
-copy mode 同样采用浅玉底、深墨字。主题文件仅提供样式，窗口选择器与快捷键由个人 tmux 配置维护。
+copy mode 同样采用玉青底、深潭字。主题文件仅提供样式，窗口选择器与快捷键由个人 tmux 配置维护。
 
 ## fzf
 
@@ -100,7 +100,7 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:-} --color=$FZF_THEME_COLOR"
 
 打开 `~/.config/alfred/themes/LuZhu Dark Large.alfredappearance` 导入，再在 Alfred 外观设置中选择 `LuZhu Dark Large`。
 
-不透明黛青深色配色：搜索区采用浮层青绿，选中项使用苔绿。主题 UUID 保持稳定，重新导出或更名时沿用同一身份。
+不透明潭绿深色配色：搜索区采用碧潭，选中项使用翠帷。主题 UUID 保持稳定，重新导出或更名时沿用同一身份。
 
 `alfred/luzhu.plist` 提供浅色、深色选择均指向该 UUID 的配置数据，供个人配置工具使用；导入外观无需覆盖 Alfred 的整份偏好设置。应用自动切换脚本由个人 Alfred 配置目录维护。
 
