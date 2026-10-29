@@ -63,10 +63,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     local p = require("luzhu.palette").get()
     local lines = {
       "",
-      "  绿珠",
+      "  绿珠飘舞",
       "  LuZhu",
       "",
-      "  绿意凝珠，温润如玉。",
+      "  红树摇歌扇，绿珠飘舞衣。",
       "",
       "  PALETTE",
       "",
