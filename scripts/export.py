@@ -9,8 +9,8 @@ import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# Persistent identity: preserve the original seed across repository renames.
-ALFRED_ID = "theme.custom." + str(uuid.uuid5(uuid.NAMESPACE_URL, "qingshan.nvim/alfred/QingShan")).upper()
+# Independent persistent identity: LuZhu and QingShan coexist in Alfred.
+ALFRED_ID = "theme.custom." + str(uuid.uuid5(uuid.NAMESPACE_URL, "luzhu.nvim/alfred/LuZhu")).upper()
 
 
 def palette():

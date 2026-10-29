@@ -20,7 +20,7 @@
 
 原生语法未必识别参数；Treesitter/LSP 识别时将其链接到 `LuZhuParameter`。bat 按 `variable.parameter` scope 处理；slides 的 Chroma token 不提供独立参数角色时使用普通变量色。保持各工具在其能力范围内语义一致。
 
-Alfred 的 UUID 根据固定 seed 生成。seed 中的旧小写仓库名属于已安装主题的持久身份，改名不会改变该 seed。`LuZhu Dark Large` 是 Alfred 的显示名与原生文件名，Neovim 模块与 colorscheme 使用 `luzhu`，WezTerm 与 bat 使用 `LuZhu`。
+Alfred 的 UUID 使用绿珠独有的固定 seed `luzhu.nvim/alfred/LuZhu`，与青山分别注册；后续更新保持此身份稳定。`LuZhu Dark Large` 是 Alfred 的显示名与原生文件名，Neovim 模块与 colorscheme 使用 `luzhu`，WezTerm 与 bat 使用 `LuZhu`。
 
 ## 验证
 

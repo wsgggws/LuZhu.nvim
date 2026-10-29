@@ -120,7 +120,7 @@ theme: ./luzhu_theme.json
 
 本机配置已安装绿珠时，在 zsh 中执行 `switch_all_theme luzhu`；更新同名主题文件后执行 `switch_all_theme luzhu --refresh`。命令由 `~/.zsh/functions/switch_all_theme.zsh` 维护，新终端自动加载；当前终端需先 `source ~/.zsh/functions/switch_all_theme.zsh`。
 
-Alfred 沿用更名前的 UUID，因此在同一套 Alfred 偏好中切换青山与绿珠会更新同一个已注册主题的名称与内容。
+Alfred 使用绿珠独有的固定 UUID，与 `QingShan Dark Large` 分别注册。曾安装共用 UUID 的旧版时，重新安装 `luzhu.plist` 并分别切换一次绿珠、青山，即可保留两套外观。
 
 ## 更新与检查
 
